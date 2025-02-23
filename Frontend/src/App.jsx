@@ -10,32 +10,8 @@ import './App.css'
 
 function App() {
   const [ count, setCount ] = useState(0)
-  const [ code, setCode ] = useState(` public class sell_stock {
-public static int buySellStock(int prices[]){
-
-    int buyPrice =Integer.MAX_VALUE;
-    int max_profit =0;
-    for ( int i =0; i<prices.length; i++){
-
-        if (prices[i]>buyPrice){
-            int profit = prices[i]- buyPrice;
-            max_profit =Math.max(max_profit, profit);
-
-        }
-
-        else{
-            buyPrice = prices[i];
-        }
-    }
-    return max_profit;
-}
-    public static void main(String[] args) {
-
-    int price []= {7,1,5,3,6,4};
-    System.out.println(buySellStock(price));
-        
-    }
-}
+  const [ code, setCode ] = useState(` function sum() {
+  return 1 + 1
 }`)
 
   const [ review, setReview ] = useState(``)
@@ -45,7 +21,7 @@ public static int buySellStock(int prices[]){
   }, [])
 
   async function reviewCode() {
-    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
+    const response = await axios.post('https://ai-integrated-code-reviewer-backend.onrender.com/ai/get-review', { code })
     setReview(response.data)
   }
 
