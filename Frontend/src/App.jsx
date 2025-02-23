@@ -45,7 +45,7 @@ public static int buySellStock(int prices[]){
   }, [])
 
   async function reviewCode() {
-    const response = await axios.post('https://ai-integrated-code-reviewer-backend.onrender.com/ai/get-review', { code })
+    const response = await axios.post('http://localhost:3000/ai/get-review', { code })
     setReview(response.data)
   }
 
